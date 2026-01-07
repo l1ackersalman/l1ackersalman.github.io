@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoC App</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <button onclick="fbLogin()">Login with Facebook</button>
+
+  <script>
+    function fbLogin() {
+      const url =
+        "https://www.facebook.com/v18.0/dialog/oauth?" +
+        new URLSearchParams({
+          client_id: "YOUR_POC_APP_ID",
+          redirect_uri: "http://20.2.210.79/callback",
+          response_type: "token",
+          scope: "email,public_profile",
+        });
+
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
