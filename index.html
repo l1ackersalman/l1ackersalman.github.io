@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PoC App</title>
+  <meta charset="UTF-8" />
+  <title>Login with Facebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>PoC App Login</h2>
-  <button onclick="fbLogin()">Login with Facebook</button>
 
-  <script>
-    function fbLogin() {
-      const url =
-        "https://www.facebook.com/v18.0/dialog/oauth?" +
-        new URLSearchParams({
-          client_id: "2455438704853657",
-          redirect_uri: "https://l1ackersalman.eastasia.cloudapp.azure.com/callback",
-          response_type: "token",
-          scope: "email,public_profile",
-        });
+<div class="container">
+  <div class="card">
+    <img src="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.svg" class="logo">
+    <h2>Sign in</h2>
+    <p>Use Facebook to continue</p>
 
-      window.location.href = url;
-    }
-  </script>
+    <button onclick="fbLogin()" class="fb-btn">
+      Continue with Facebook
+    </button>
+  </div>
+</div>
+
+<script>
+function fbLogin() {
+  const params = new URLSearchParams({
+    client_id: "2455438704853657",
+    redirect_uri: "https://l1ackersalman.eastasia.cloudapp.azure.com/callback",
+    response_type: "token",
+    scope: "email,public_profile"
+  });
+
+  window.location.href =
+    "https://www.facebook.com/v18.0/dialog/oauth?" + params.toString();
+}
+</script>
+
 </body>
 </html>
